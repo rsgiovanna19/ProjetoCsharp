@@ -11,6 +11,8 @@ function Pagamento() {
     listarPagamentos();
   }, []);
 
+
+  //funções
   // Função para listar todos os pagamentos
   function listarPagamentos() {
     axios.get("http://localhost:5156/pagamentos")
@@ -58,6 +60,8 @@ function Pagamento() {
         console.error("Erro ao excluir pagamento:", erro);
       });
   }
+
+  //
 
   return (
     <div className="container mx-auto p-8">
@@ -107,7 +111,7 @@ function Pagamento() {
         </ul>
       </section>
 
-      {/* Formulário de Edição de Pagamento */}
+      {/* Formulário para Edição de Pagamento */}
       {pagamentoEditado.id && (
         <section className="form-section bg-orange-100 p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-semibold mb-4">Editar Pagamento</h2>
