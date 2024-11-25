@@ -32,3 +32,17 @@ function Autor() {
         console.error("Erro ao adicionar autor:", erro);
       });
   }
+
+  // Função para editar um autor
+  function editarAutor() {
+    if (autorEditado.id !== null) {
+      axios.put(`http://localhost:5156/autores/${autorEditado.id}`, autorEditado)
+        .then(() => {
+          listarAutores();
+          setAutorEditado({ id: null, nome: '', obra: '' });
+        })
+        .catch((erro) => {
+          console.error("Erro ao editar autor:", erro);
+        });
+    }
+  }
