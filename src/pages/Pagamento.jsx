@@ -48,7 +48,16 @@ function Pagamento() {
     }
   }
 
-
+  // Função para excluir um pagamento
+  function excluirPagamento(id) {
+    axios.delete(`http://localhost:5156/pagamentos/${id}`)
+      .then(() => {
+        listarPagamentos();
+      })
+      .catch((erro) => {
+        console.error("Erro ao excluir pagamento:", erro);
+      });
+  }
 
   return (
     <div className="container mx-auto p-8">
