@@ -89,7 +89,7 @@ function Pagamento() {
               onChange={(e) => setNovoPagamento({ ...novoPagamento, dinheiro: e.target.checked })}
               className="checkbox"
             />
-            <span>Dinheiro</span>
+            <span>DInheiro</span>
           </label>
         </div>
         <button className="btn bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition" onClick={adicionarPagamento}>Adicionar Pagamento</button>
