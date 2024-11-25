@@ -6,7 +6,7 @@ function Pagamento() {
   const [novoPagamento, setNovoPagamento] = useState({ cartao: false, dinheiro: false });
   const [pagamentoEditado, setPagamentoEditado] = useState({ id: null, cartao: false, dinheiro: false });
 
-  
+
   useEffect(() => {
     listarPagamentos();
   }, []);
@@ -22,7 +22,7 @@ function Pagamento() {
       });
   }
 
-  // Função para adicionar um novo pagamento
+  // add novo pagamento
   function adicionarPagamento() {
     axios.post("http://localhost:5156/pagamentos", novoPagamento)
       .then(() => {
@@ -34,7 +34,7 @@ function Pagamento() {
       });
   }
 
-  // Função para editar um pagamento
+  // editando novo pagamento
   function editarPagamento() {
     if (pagamentoEditado.id !== null) {
       axios.put(`http://localhost:5156/pagamentos/${pagamentoEditado.id}`, pagamentoEditado)
@@ -48,16 +48,7 @@ function Pagamento() {
     }
   }
 
-  // Função para excluir um pagamento
-  function excluirPagamento(id) {
-    axios.delete(`http://localhost:5156/pagamentos/${id}`)
-      .then(() => {
-        listarPagamentos();
-      })
-      .catch((erro) => {
-        console.error("Erro ao excluir pagamento:", erro);
-      });
-  }
+
 
   return (
     <div className="container mx-auto p-8">
