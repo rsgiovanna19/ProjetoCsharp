@@ -102,13 +102,35 @@ function adicionarCliente() {
           ))}
         </ul>
           
-
-
-
-
-
-
-
+      {/* Formulário de Edição de Cliente */}
+      {clienteEditado.id && (
+        <section className="form-section bg-orange-100 p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-semibold mb-4">Editar Cliente</h2>
+          <div className="input-group mb-4">
+            <label className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                checked={clienteEditado.comprado}
+                onChange={(e) => setClienteEditado({ ...clienteEditado, comprado: e.target.checked })}
+                className="checkbox"
+              />
+              <span>Comprado</span>
+            </label>
+          </div>
+          <div className="input-group mb-4">
+            <label className="flex items-center space-x-2">
+              <input
+                type="text"
+                placeholder="Nome do cliente"
+                value={clienteEditado.nome}
+                onChange={(e) => setClienteEditado({ ...clienteEditado, nome: e.target.value })}
+                className="input"
+              />
+            </label>
+          </div>
+          <button className="btn bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition" onClick={editarCliente}>Salvar Alterações</button>
+        </section>
+      )}
       </section>
     </div>
     );
