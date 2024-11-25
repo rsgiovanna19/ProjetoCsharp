@@ -46,3 +46,14 @@ function Autor() {
         });
     }
   }
+
+  // Função para excluir um autor
+  function excluirAutor(id) {
+    axios.delete(`http://localhost:5156/autores/${id}`)
+      .then(() => {
+        listarAutores();
+      })
+      .catch((erro) => {
+        console.error("Erro ao excluir autor:", erro);
+      });
+  }
