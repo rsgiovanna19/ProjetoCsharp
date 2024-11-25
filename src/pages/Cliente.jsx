@@ -21,3 +21,28 @@ function Cliente() {
       });
   }
 }
+// Função para adicionar um novo cliente
+function adicionarCliente() {
+    axios.post("http://localhost:5156/clientes", novoCliente)
+      .then(() => {
+        listarClientes();
+        setNovoCliente({ nome: '', comprado: false }); // Limpar os campos
+      })
+      .catch((erro) => {
+        console.error("Erro ao adicionar cliente:", erro);
+      });
+  }
+
+  // Função para editar um cliente
+  function editarCliente() {
+    if (clienteEditado.id !== null) {
+      axios.put(`http://localhost:5156/clientes/${clienteEditado.id}`, clienteEditado)
+        .then(() => {
+          listarClientes();
+          setClienteEditado({ id: null, nome: '', comprado: false });
+        })
+        .catch((erro) => {
+          console.error("Erro ao editar cliente:", erro);
+        });
+    }
+  }
