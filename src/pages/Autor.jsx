@@ -19,4 +19,16 @@ function Autor() {
       .catch((erro) => {
         console.error("Erro ao listar autores:", erro);
       });
-  };
+  }
+
+  // Função para adicionar um novo autor
+  function adicionarAutor() {
+    axios.post("http://localhost:5156/autores", novoAutor)
+      .then(() => {
+        listarAutores();
+        setNovoAutor({ nome: '', obra: '' }); // Limpar os campos
+      })
+      .catch((erro) => {
+        console.error("Erro ao adicionar autor:", erro);
+      });
+  }
