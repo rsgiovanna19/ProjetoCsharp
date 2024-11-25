@@ -6,6 +6,7 @@ function Pagamento() {
   const [novoPagamento, setNovoPagamento] = useState({ cartao: false, dinheiro: false });
   const [pagamentoEditado, setPagamentoEditado] = useState({ id: null, cartao: false, dinheiro: false });
 
+  
   useEffect(() => {
     listarPagamentos();
   }, []);
