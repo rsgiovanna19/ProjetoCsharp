@@ -45,4 +45,16 @@ function adicionarCliente() {
           console.error("Erro ao editar cliente:", erro);
         });
     }
+
+    // Função para excluir um cliente
+  function excluirCliente(id) {
+    axios.delete(`http://localhost:5156/clientes/${id}`)
+      .then(() => {
+        listarClientes();
+      })
+      .catch((erro) => {
+        console.error("Erro ao excluir cliente:", erro);
+      });
+  }
+
   }
