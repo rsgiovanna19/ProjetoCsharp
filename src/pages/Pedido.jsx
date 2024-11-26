@@ -20,6 +20,18 @@ function Pedido() {
         console.error("Erro ao listar pedidos:", erro);
       });
   }
+
+  // Função para adicionar um novo pedido
+  function adicionarPedido() {
+    axios.post("http://localhost:5156/pedidos", novoPedido)
+      .then(() => {
+        listarPedidos();
+        setNovoPedido({ descricao: '', realizado: false }); // Limpar os campos
+      })
+      .catch((erro) => {
+        console.error("Erro ao adicionar pedido:", erro);
+      });
+  }
   
   return (
     <></>
