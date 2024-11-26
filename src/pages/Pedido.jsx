@@ -32,6 +32,20 @@ function Pedido() {
         console.error("Erro ao adicionar pedido:", erro);
       });
   }
+
+  // Função para editar um pedido
+  function editarPedido() {
+    if (pedidoEditado.id !== null) {
+      axios.put(`http://localhost:5156/pedidos/${pedidoEditado.id}`, pedidoEditado)
+        .then(() => {
+          listarPedidos();
+          setPedidoEditado({ id: null, descricao: '', realizado: false });
+        })
+        .catch((erro) => {
+          console.error("Erro ao editar pedido:", erro);
+        });
+    }
+  }
   
   return (
     <></>
