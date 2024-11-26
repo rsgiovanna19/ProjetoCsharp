@@ -10,6 +10,16 @@ function Pedido() {
     listarPedidos();
   }, []);
 
+  // Função para listar todos os pedidos
+  function listarPedidos() {
+    axios.get("http://localhost:5156/pedidos")
+      .then((resposta) => {
+        setPedidos(resposta.data);
+      })
+      .catch((erro) => {
+        console.error("Erro ao listar pedidos:", erro);
+      });
+  }
   
   return (
     <></>
